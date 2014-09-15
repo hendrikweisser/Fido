@@ -2,8 +2,15 @@
 #define _Numerical_H
 
 #include <iostream>
-#include <math.h>
+#include <cmath>
 #include <limits>
+#include <sstream>
+
+#ifdef WIN32   //should be true on: MinGW (32bit + 64bit) & MSVS compiler
+  double log2(double x);
+  int isnan(double x);
+  int isinf(double x);
+#endif
 
 using namespace std;
 

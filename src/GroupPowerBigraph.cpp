@@ -404,7 +404,7 @@ Array<BasicBigraph> GroupPowerBigraph::iterativePartitionSubgraphs(BasicBigraph 
 	{
 	  // the graph cannot become pruned to the desired efficiency;
 	  // prune as much as possible
-	  double largest = Vector(preResult[k].PSMsToProteins.weights).max();
+	  double largest = (Vector(preResult[k].PSMsToProteins.weights).max)();
 
 	  Array<BasicBigraph> completelyFragmented = iterativePartitionSubgraphs(preResult[k], largest);
 

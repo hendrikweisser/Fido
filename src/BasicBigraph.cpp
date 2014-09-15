@@ -531,7 +531,7 @@ void BasicBigraph::removePoorProteins()
   int k;
   for (k=0; k<proteinsToPSMs.size(); k++)
     {
-      if ( Vector(PSMsToProteins.weights[ proteinsToPSMs.associations[k] ]).max() < ProteinThreshold )
+      if ( (Vector(PSMsToProteins.weights[ proteinsToPSMs.associations[k] ]).max)() < ProteinThreshold )
 	{
 	  //	  cout << "\tDisconnecting protein " << proteinsToPSMs.names[k] << endl;
 	  //	  cout << "\t" << PSMsToProteins.weights[ proteinsToPSMs.associations[k] ] << endl;

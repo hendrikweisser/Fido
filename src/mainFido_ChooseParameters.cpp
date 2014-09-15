@@ -7,7 +7,11 @@
 #include <string>
 #include <set>
 
+#ifdef WIN32   //should be true on: MinGW (32bit + 64bit) & MSVS compiler
+#include <getopt.h>
+#else
 #include <unistd.h>
+#endif
 
 #include "GroupPowerBigraph.h"
 #include "InputFileShrinker.h"
@@ -180,7 +184,7 @@ double getFDR_divergence(const Array<double> estFDR, const Array<double> empFDR,
       if ( estFDR[k] >= THRESH )
 	{
 	  if ( k == 0 )
-	    tot = 1.0 / 0.0;
+	    tot = std::numeric_limits<double>::infinity();
 
 	  break;
 	}

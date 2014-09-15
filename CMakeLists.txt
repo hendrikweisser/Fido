@@ -1,7 +1,7 @@
 cmake_minimum_required(VERSION 2.8.3 FATAL_ERROR)
 project(fido)
 
-if(NOT CMAKE_BUILD_TYPE)
+if(NOT CMAKE_BUILD_TYPE) ## "DEBUG" is the default
   set(CMAKE_BUILD_TYPE "Release")
 endif()
 
@@ -34,6 +34,10 @@ set(Fido_sources
   src/PivdoSplitter.cpp
   src/InputFileShrinker.cpp
 )
+
+if (WIN32) ## on Windows, add "getopt" (Linux/Mac have "unistd.h")
+  set(Fido_sources ${Fido_sources} src/getopt.c)
+endif()
 
 include_directories(${PROJECT_SOURCE_DIR}/src)
 add_executable(Fido src/mainFido.cpp ${Fido_sources})

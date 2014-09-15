@@ -114,9 +114,9 @@ class RealRange
       max = 0;
       resolution = -1;
     }
-  RealRange(double small, double res, double large)
+  RealRange(double little, double res, double large)
     {
-      min = small;
+      min = little;
       resolution = res;
       max = large;
 
