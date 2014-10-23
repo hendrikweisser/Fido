@@ -21,12 +21,20 @@ class Combinatorics
     return sumLogs(k+1, n) - sumLogs(2, n-k);
   }
 
-  static double logGeneralizedBinomial(double n, double k)  restrict(amp)
+#ifdef WIN32
+  static double logGeneralizedBinomial(double n, double k) restrict(amp)
   {
     //    cout << "Getting bin(" << n << "," << k << ")" << endl;
     int dummy; 
     return lgamma(n+1, &dummy) - lgamma(k+1, &dummy) - lgamma(n-k+1, &dummy);
   }
+#else
+  static double logGeneralizedBinomial(double n, double k)
+  {
+    //    cout << "Getting bin(" << n << "," << k << ")" << endl;
+    return lgamma(n+1) - lgamma(k+1) - lgamma(n-k+1);
+  }  
+#endif
 
   static double sumLogs(int a, int b)
   {
