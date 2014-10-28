@@ -1,7 +1,7 @@
 #include "Numerical.h"
 
 #ifdef WIN32   //should be true on: MinGW (32bit + 64bit) & MSVS compiler
-  double log2(double x) { return log(x)/log(2); }
+  double log2(double x) { return log(x)/log(2.0); }
   int isnan(double x) { return _isnan(x); }
   int isinf(double x) { return !_finite(x) && !_isnan(x); }
 #endif
