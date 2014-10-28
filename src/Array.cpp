@@ -98,7 +98,13 @@ bool Array<T>::inBounds(int i) const
 }
 
 template <typename T>
-void Array<T>::boundsCheck(int i) const
+void Array<T>::boundsCheck(
+#ifdef SAFE_ARRAYS
+int i
+#else
+int
+#endif
+) const
 {
 #ifdef SAFE_ARRAYS
   if ( ! inBounds(i) )
@@ -165,7 +171,7 @@ ostream & operator <<(ostream & os, const Array<T> & rhs)
       return os;
     }
 
-  int w = os.width();
+  std::streamsize w = os.width();
   os << "{ ";
 
   int k;
