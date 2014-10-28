@@ -36,7 +36,7 @@ set(Fido_sources
 )
 
 if (WIN32) ## on Windows, add "getopt" (Linux/Mac have "unistd.h")
-  set(Fido_sources ${Fido_sources} src/getopt.c)
+  set(Fido_sources ${Fido_sources} src/win/getopt.c)
 endif()
 
 include_directories(${PROJECT_SOURCE_DIR}/src)

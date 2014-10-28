@@ -8,7 +8,7 @@
 #include <set>
 
 #ifdef WIN32   //should be true on: MinGW (32bit + 64bit) & MSVS compiler
-#include <getopt.h>
+#include <win/getopt.h>
 #else
 #include <unistd.h>
 #endif
