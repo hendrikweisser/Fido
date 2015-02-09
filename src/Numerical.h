@@ -47,11 +47,9 @@ class Numerical
   }
   static double logAdd(double logA, double logB)
   {
-    // returns log(a*b)
-    if ( logA < logB )
-    {
-      return logAdd(logB, logA);
-    }
+    // returns log(a+b) given log(a) and log(b)
+    if ( logA > logB )
+      swap(logA, logB);
 
     // assume logA <= logB
 
