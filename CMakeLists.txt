@@ -11,11 +11,6 @@ if(HAS_WALL)
   set(CMAKE_CXX_FLAGS_RELEASE "${CMAKE_CXX_FLAGS_RELEASE} -Wall")
 endif()
 
-check_cxx_compiler_flag("-ffast-math" HAS_FAST_MATH)
-if(HAS_FAST_MATH)
-  set(CMAKE_CXX_FLAGS_RELEASE "${CMAKE_CXX_FLAGS_RELEASE} -ffast-math")
-endif()
-
 set(Fido_sources
   src/Set.cpp
   src/Vector.cpp
