@@ -1,4 +1,5 @@
 // member functions
+#include <functional> 
 
 template <typename T>
 Array<T>::Array(int n) :
@@ -268,7 +269,7 @@ Array<int> Array<T>::sort()
       sortie[k] = pair<T, int>( (*this)[k], k);
     }
 
-  ::sort( sortie.begin(), sortie.end() , greater<pair<T, int> >() );
+  ::sort( sortie.begin(), sortie.end() , std::greater<pair<T, int> >() );
   
   Array<int> result(size());
   for (k=0; k<size(); k++)
